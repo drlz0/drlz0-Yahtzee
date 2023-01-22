@@ -459,7 +459,6 @@ class MainWindow(tk.Frame):
         self.computer_algorithm()
         self.computer_algorithm()
         self.computer_choose_category()
-        print(self.cvalue15.get())
 
     # function that removes checkbutton after click, add value to total, hides blank roll button
     # sets not selected values of cells to zero, and gives computer a turn
@@ -609,16 +608,13 @@ class MainWindow(tk.Frame):
                 if self.cvalue9.get() > 0:  # if 4 of kind # y2
                     if len(set(self.c_dice_table)) == 1 and self.cvalue_bool13 is False:  # if yahtzee
                         self.cvalue_bool13 = True
-                        print("wzielo z algorytymu yahtzee")
                         return self.cvalue13  # set yahtzee
                     elif self.cvalue_bool9 is False:
                         self.cvalue_bool9 = True
-                        print("wzielo z algorytymu 4 of kind")
                         return self.cvalue9  # set 4 of kind
                 elif len(set(self.c_dice_table)) == 2 and self.c_dice_table.count(self.c_dice_table[0]) in (
                         2, 3) and self.cvalue_bool10 is False:  # full house
                     self.cvalue_bool10 = True
-                    print("wzielo z algorytymu full house")
                     return self.cvalue10  # set full house score
                 else:  # else reroll dices not matching 3 of kind | if not 4 of kind
                     if self.cvalue8.get() == 3:
@@ -714,11 +710,9 @@ class MainWindow(tk.Frame):
                     self.cdice5 = random.randint(1, 6)
         elif set(range(1, 4)) in set(self.c_dice_table):  # if close to large straight or small straight
             if set(self.dice_table) == set(range(2, 7)) and self.cvalue_bool12 is False:  # large straight
-                print("wzielo z algorytymu large straight")
                 self.cvalue_bool2 = True
                 return self.cvalue12
             elif set(self.dice_table) == set(range(1, 6)) and self.cvalue_bool11 is False:  # small straight
-                print("wzielo z algorytymu small straight")
                 self.cvalue_bool11 = True
                 return self.cvalue11
             elif self.cdice1 == 4 or 5 or 6 or self.cdice2 or self.cdice3 or self.cdice4 or self.cdice5:
